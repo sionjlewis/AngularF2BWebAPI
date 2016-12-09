@@ -11,9 +11,10 @@ namespace APM.WebAPI.Controllers
 {
     /// <summary>
     /// Controller class is required for the APM sample application. 
-    /// Added the Enable CORS Attribute...
+    /// Added the Enable CORS attribute (note: EnableCors has replaced EnableCorsAttribute)...
+    /// <code>[EnableCors(origins: "http://localhost:2664", headers: "*", methods: "*")]</code>
     /// </summary>
-    [EnableCorsAttribute("http://localhost:2664", "*","*")]
+    [EnableCors("http://localhost:2664", "*", "*")]
     public class ProductsController : ApiController
     {
         // GET: api/Products
