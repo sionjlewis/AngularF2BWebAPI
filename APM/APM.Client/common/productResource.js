@@ -13,6 +13,8 @@
     // Chrome error: XMLHttpRequest cannot load http://eg-url. No 'Access-Control-Allow-Origin' header is present on the requested resource.
     function productResource($resource, appSettings) {
         // Using $resource instead of $http, as were making a call to a REST'full service...
-        return $resource(appSettings.serverPath + 'api/Products/:id');
+
+        // Extending URL Path Part #2: Modify the routing path (change from id to search)...
+        return $resource(appSettings.serverPath + 'api/Products/:search');
     }
 }());

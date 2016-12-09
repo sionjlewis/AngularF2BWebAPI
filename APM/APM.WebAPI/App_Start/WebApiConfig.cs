@@ -26,10 +26,11 @@ namespace APM.WebAPI
             // Add this method call to enable CORS for this projects. Next we need to add attributes...
             config.EnableCors();
 
+            // Extending URL Path Part #1: Modify the routing path (change from id to search)...
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{search}",
+                defaults: new { search = RouteParameter.Optional }
             );
         }
     }

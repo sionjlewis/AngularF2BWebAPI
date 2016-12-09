@@ -10,7 +10,11 @@
     function ProductListCtrl(productResource) {
         var vm = this;
 
-        productResource.query(function (data) {
+        // Query String Part #1: Hard-coded search value and added it as a Query String parameter.
+        vm.searchCriteria = 'GDN';
+
+        // Extending URL Path Part #3: Added the search parameter to match the routeTemplate within WebApiConfig.cs
+        productResource.query({search: vm.searchCriteria}, function (data) {
             vm.products = data;
         });
     }

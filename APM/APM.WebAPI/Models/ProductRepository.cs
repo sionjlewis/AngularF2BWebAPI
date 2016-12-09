@@ -8,7 +8,7 @@ using System.Web.Hosting;
 namespace APM.WebAPI.Models
 {
     // <summary>
-    /// Stores the data in a json file so that no database is required for the APM sample application.
+    /// Stores the data in a JSON file so that no database is required for the APM sample application.
     /// </summary>
     public class ProductRepository
     {

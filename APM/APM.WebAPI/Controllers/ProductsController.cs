@@ -17,30 +17,52 @@ namespace APM.WebAPI.Controllers
     [EnableCors("http://localhost:2664", "*", "*")]
     public class ProductsController : ApiController
     {
-        // GET: api/Products
+        /// <summary>
+        /// GET: api/Products
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Product> Get()
         {
             var productRepository = new ProductRepository();
             return productRepository.Retrieve();
         }
 
-        // GET: api/Products/5
-        public string Get(int id)
+        /// <summary>
+        /// GET: api/Products/5
+        /// </summary>
+        /// <remarks>The Query String parameter name must match the methods parameter name of "search"</remarks>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        public IEnumerable<Product> Get(string search)
         {
-            return "value";
+            // Query String Part #2: Except and process the Query String parameter.
+            // Extending URL Path Part #4: Except and process the extended path.
+            var productRepository = new ProductRepository();
+            var products = productRepository.Retrieve();
+            return products.Where(p => p.ProductCode.Contains(search));
         }
 
-        // POST: api/Products
+        /// <summary>
+        /// POST: api/Products
+        /// </summary>
+        /// <param name="value"></param>
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Products/5
+        /// <summary>
+        /// PUT: api/Products/5
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Products/5
+        /// <summary>
+        /// DELETE: api/Products/5
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
         }
