@@ -12,9 +12,6 @@ namespace APM.WebAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            // Add this method call to enable CORS for this projects. Next we need to add attributes...
-            config.EnableCors();
-
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             //config.SuppressDefaultHostAuthentication();
@@ -22,6 +19,12 @@ namespace APM.WebAPI
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            // Configure the JSON Formatter...
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            // Add this method call to enable CORS for this projects. Next we need to add attributes...
+            config.EnableCors();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
