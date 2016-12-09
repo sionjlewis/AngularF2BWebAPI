@@ -15,6 +15,7 @@
         // Using $resource instead of $http, as were making a call to a REST'full service...
 
         // Extending URL Path Part #2: Modify the routing path (change from id to search)...
+        // Note: if the ':search' is removed then Angular would add it to the query string.
         return $resource(appSettings.serverPath + 'api/Products/:search');
     }
 }());
